@@ -9,7 +9,7 @@
     </x-alert>
 
     <x-alert type="warning" >
-        <strong>hello</strong>
+        <strong>hello doua</strong>
     </x-alert>
 
 
