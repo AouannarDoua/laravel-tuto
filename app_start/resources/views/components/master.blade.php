@@ -12,9 +12,13 @@
 <body>  
     @include('partials.nav')
     
-  
     <main>
         <div class="m-3">
+            
+        <div class="row my-4 mx-2">
+          @include('partials.flashbag')
+        </div>
+        
         {{$slot}}
         </div>
     </main>

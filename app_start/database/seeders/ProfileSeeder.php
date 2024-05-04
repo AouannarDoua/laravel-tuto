@@ -19,7 +19,7 @@ class ProfileSeeder extends Seeder
     public function run()
     {
 
-       Profile::factory(200)->create();
+       Profile::factory(20)->create();
 
        /*DB::table('profiles')->insert([
         'name' => 'Aouannar',
