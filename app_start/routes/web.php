@@ -38,6 +38,7 @@ Route::get('/salam/{nom}', function (Request $request) {
     ]);
 });
 
-Route::get('/Accueil',[controllertest::class,'index']);
-Route::get('/profile',[profilController::class,'index']);
-Route::get('/formations',[formationsController::class,'index']);
+Route::get('/Accueil',[controllertest::class,'index'])->name('homepage');
+Route::get('/profiles',[profilController::class,'index'])->name('profiles.index');
+Route::get('/profiles/{id}',[profilController::class,'show'])->where('id','\d+')->name('profiles.show');
+Route::get('/formations',[formationsController::class,'index'])->name('formationpage');

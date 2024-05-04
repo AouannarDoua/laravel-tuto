@@ -7,13 +7,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/Accueil">Accueil</a>
+            <a class="nav-link" aria-current="page" href="{{route('homepage')}}">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('profiles.index')}}">Tous les profiles</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/profile">Profil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/formations">informations</a>
+            <a class="nav-link" href="{{route('formationpage')}}">informations</a>
           </li>
         </ul>
       </div>
