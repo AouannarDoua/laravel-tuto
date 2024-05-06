@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Hash;
 
 class profilController extends Controller
 {
+    public function __construct(){
+
+        $this->middleware('auth');
+        
+    }
     public function index(){
 
         $Profiles=Profile::paginate(10);
@@ -91,4 +96,36 @@ class profilController extends Controller
         
         return redirect()->route('profiles.show',$profile->id)->with('success', 'Le profil a été mis à jour avec succès.');
     }
+
+
+    public function search(Request $request){
+
+        $searchname = $request->namesearch;
+        $searchemail = $request->emailsearch;
+        $searchbio = $request->biosearch;
+
+        $query=Profile::query();
+
+        if ($searchname) {
+            $query->where('name', 'like', "%$searchname%");
+        }
+    
+        if ($searchemail) {
+            $query->where('email', 'like', "%$searchemail%");
+        }
+    
+        if ($searchbio) {
+            $query->where('bio', 'like', "%$searchbio%");
+        }
+    
+        $Profiles = $query->paginate(10);
+    
+        if ($Profiles->isEmpty()) {
+            return view('Profile.profilesview', compact('Profiles', 'searchname','searchemail','searchbio'))->with('danger', 'No profiles found with this name.');
+        } else {
+            return view('Profile.profilesview', compact('Profiles', 'searchname','searchemail','searchbio'));
+        }
+    }
+    
+    
 }

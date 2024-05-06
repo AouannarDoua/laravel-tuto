@@ -1,4 +1,5 @@
 <x-master title="Profile">
+    <div class="m-3">
     <h3>Modifier Profile:</h3>
 
     @if ($errors->any())
@@ -48,4 +49,5 @@
     <button type="submit" class="btn btn-primary btn-block">Modifier</button>
     </div>
 </form>
+    </div>
 </x-master>

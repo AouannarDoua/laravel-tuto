@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{route('homepage')}}">Accueil</a>
+            <a class="nav-link" aria-current="page" href="{{route('dashboard')}}">Accueil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('profiles.index')}}">Tous les profiles</a>
@@ -19,6 +19,9 @@
             <a class="nav-link" href="{{route('formationpage')}}">informations</a>
           </li>
         </ul>
+        <ul class="nav navbar-nav ms-auto">
+          <li><a href="{{ route('logout') }}" class="btn "><i class="fas fa-sign-out-alt fa-lg me-2"></i> <span class="fs-5">Logout</span></a></li>
+      </ul>  
       </div>
     </div>
   </nav>

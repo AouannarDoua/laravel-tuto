@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\controllertest;
 use App\Http\Controllers\profilController;
 use App\Http\Controllers\formationsController;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Route::get('/salam/{nom}', function (Request $request) {
 });
 
 
-Route::get('/Accueil',[controllertest::class,'index'])->name('homepage');
+
 
 Route::get('/profiles',[profilController::class,'index'])->name('profiles.index');
 
@@ -55,4 +56,19 @@ Route::get('/profiles/create',[profilController::class,'create'])->name('profile
 
 Route::post('/profiles/store',[profilController::class,'store'])->name('profiles.store');
 
+Route::get('/profiles/search', [profilController::class, 'search'])->name('profiles.search');
+
 Route::get('/formations',[formationsController::class,'index'])->name('formationpage');
+
+
+Route::get('/Accueil', [AuthController::class,'dashboard'])->name('dashboard')->middleware('auth');
+
+Route::get('/logout', [AuthController::class,'logout'])->name('logout');
+
+
+
+Route::get('/register', [AuthController::class,'Register'])->name('Register');
+
+Route::post('/postregistration', [AuthController::class,'postregistration'])->name('registration.post');
+
+Route::post('/postlogin', [AuthController::class,'postlogin'])->name('login.post');
